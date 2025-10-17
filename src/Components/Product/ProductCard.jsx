@@ -4,9 +4,8 @@ import CurrencyFormat from "../CurrencyFormat/CurruncyFormat";
 import classes from "./Product.module.css";
 import { Link } from "react-router-dom";
 
-function ProductCard({ product }) {
-  // ✅ object destructuring
-  const { image, title, rating, id, price } = product;
+function ProductCard({ product, renderDisc }) {
+  const { image, title, rating, id, price, description } = product;
 
   return (
     <div className={classes.card}>
@@ -16,6 +15,7 @@ function ProductCard({ product }) {
 
       <div className={classes.details}>
         <h3 className={classes.title}>{title}</h3>
+        {renderDisc && <div style={{ maxWidth: "750px" }}>{description}</div>}
 
         <div className={classes.rating}>
           <Rating value={rating?.rate || 0} precision={0.1} readOnly />

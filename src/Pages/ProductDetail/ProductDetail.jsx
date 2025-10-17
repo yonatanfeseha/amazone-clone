@@ -16,6 +16,7 @@ function ProductDetail() {
       .get(`${productUrl}products/${productId}`)
       .then((res) => {
         setProduct(res.data);
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching product details:", error);
@@ -23,7 +24,13 @@ function ProductDetail() {
       });
   }, []);
   return (
-    <Layout>{loading ? <Loader /> : <ProductCard product={product} />}</Layout>
+    <Layout>
+      {loading ? (
+        <Loader />
+      ) : (
+        <ProductCard product={product} renderDisc={true} />
+      )}
+    </Layout>
   );
 }
 
