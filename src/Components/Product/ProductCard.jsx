@@ -2,16 +2,17 @@ import React from "react";
 import Rating from "@mui/material/Rating";
 import CurrencyFormat from "../CurrencyFormat/CurruncyFormat";
 import classes from "./Product.module.css";
+import { Link } from "react-router-dom";
 
 function ProductCard({ product }) {
   // ✅ object destructuring
-  const { image, title, rating, price } = product;
+  const { image, title, rating, id, price } = product;
 
   return (
     <div className={classes.card}>
-      <a href="#" className={classes.imageContainer}>
+      <Link to={`/products/${id}`} className={classes.imageContainer}>
         <img src={image} alt={title} className={classes.image} />
-      </a>
+      </Link>
 
       <div className={classes.details}>
         <h3 className={classes.title}>{title}</h3>
