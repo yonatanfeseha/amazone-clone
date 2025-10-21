@@ -25,7 +25,11 @@ function Product() {
     <section className={classes.productGrid}>
       {product.length > 0 ? (
         product.map((singleProduct) => (
-          <ProductCard product={singleProduct} key={singleProduct.id} />
+          <ProductCard
+            product={singleProduct}
+            key={singleProduct.id}
+            renderAdd={true}
+          />
         ))
       ) : (
         <Loader loading={loading} />

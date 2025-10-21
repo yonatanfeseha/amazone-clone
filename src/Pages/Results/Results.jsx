@@ -15,6 +15,7 @@ function Results() {
       .get(`${productUrl}products/category/${encodeURIComponent(catagoryName)}`)
       .then((res) => {
         setResults(res.data);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -29,7 +30,7 @@ function Results() {
         <hr />
         <div className={Classes.products_container}>
           {results.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard key={product.id} product={product} renderAdd={true} />
           ))}
         </div>
       </section>

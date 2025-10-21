@@ -6,19 +6,26 @@ import { Link } from "react-router-dom";
 import { DataContext } from "../DataProvider/DataProvider";
 import { Type } from "../../Utility/action.type";
 
-function ProductCard({ product, renderDisc }) {
+function ProductCard({ product, renderDisc, renderAdd }) {
   const { image, title, rating, id, price, description } = product;
 
   const [state, dispatch] = useContext(DataContext);
   const addToCart = () => {
     dispatch({
       type: Type.ADD_TO_BASKET,
-      item: (image, title, rating, id, price, description),
+      item: {
+        id,
+        title,
+        image,
+        price,
+        rating,
+        description,
+      },
     });
   };
 
   return (
-    <div className={classes.card}>
+    <div className={`${classes.card} ${renderDisc ? classes.flex : ""}`}>
       <Link to={`/products/${id}`} className={classes.imageContainer}>
         <img src={image} alt={title} className={classes.image} />
       </Link>
@@ -35,10 +42,11 @@ function ProductCard({ product, renderDisc }) {
         <div className={classes.price}>
           <CurrencyFormat amount={price} />
         </div>
-
-        <button className={classes.btn} onClick={addToCart}>
-          Add to Cart
-        </button>
+        {renderAdd && (
+          <button className={classes.btn} onClick={addToCart}>
+            Add to Cart
+          </button>
+        )}
       </div>
     </div>
   );

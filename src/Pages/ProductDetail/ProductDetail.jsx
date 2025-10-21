@@ -5,6 +5,7 @@ import axios from "axios";
 import { productUrl } from "../Api/endPoints";
 import ProductCard from "../../Components/Product/ProductCard";
 import Loader from "../../Components/Loader/Loader";
+import classes from "../../Components/Product/Product.module.css";
 
 function ProductDetail() {
   const { productId } = useParams();
@@ -28,7 +29,12 @@ function ProductDetail() {
       {loading ? (
         <Loader />
       ) : (
-        <ProductCard product={product} renderDisc={true} />
+        <ProductCard
+          product={product}
+          renderDisc={true}
+          className={classes.flex}
+          renderAdd={true}
+        />
       )}
     </Layout>
   );
