@@ -1,0 +1,133 @@
+.payment {
+  background-color: #fff;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.payment__header {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.payment__header h1 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #111;
+}
+
+.payment__section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.payment__sectionContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.payment__sectionContent h3 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #111;
+}
+
+.payment__divider {
+  border-bottom: 1px solid #ddd;
+  margin: 10px 0;
+}
+
+.payment__cardForm {
+  padding: 20px 26px;
+  background: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+
+.payment__cardForm form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Title Text */
+.payment__cardForm h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f1111;
+  border-bottom: 1px solid #e7e7e7;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+/* Stripe Card Input (Amazon Style) */
+.payment__cardForm .StripeElement {
+  border: 1px solid #888c8c;
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 12px;
+  font-size: 15px;
+  box-shadow: inset 0 1px 2px rgba(15, 17, 17, 0.15);
+  transition: all 0.2s ease;
+}
+
+.payment__cardForm .StripeElement--focus {
+  border-color: #f90;
+  box-shadow: 0 0 0 2px #ffb84d;
+}
+
+.payment__cardForm .StripeElement--invalid {
+  border-color: #d93025;
+}
+
+/* Price Section */
+.payment__cardForm .orderTotal {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f1111;
+}
+
+/* Amazon Styled Buy Button */
+.payment__cardForm button {
+  background-color: #ffd814;
+  border: 1px solid #fcd200;
+  border-radius: 8px;
+  padding: 10px 0;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(15, 17, 17, 0.15);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.payment__cardForm button:hover {
+  background-color: #f7ca00;
+}
+
+.payment__cardForm button:active {
+  background-color: #f0b800;
+  box-shadow: none;
+}
+
+.payment__cardForm button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+  .payment {
+    padding: 15px;
+  }
+
+  .payment__header h1 {
+    font-size: 20px;
+  }
+}

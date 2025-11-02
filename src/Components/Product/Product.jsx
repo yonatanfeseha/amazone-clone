@@ -13,7 +13,7 @@ function Product() {
     axios
       .get("https://fakestoreapi.com/products")
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setProduct(res.data);
         setLoading(false);
       })
