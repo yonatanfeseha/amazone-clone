@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import classes from "./SignUp.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { auth } from "../../Utility/firebase";
 import { DataContext } from "../../Components/DataProvider/DataProvider";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -19,6 +19,8 @@ function Auth() {
     signUp: false,
   });
   const navigate = useNavigate();
+  const navStateDate = useLocation();
+  console.log(navStateDate);
 
   const authHandler = async (e) => {
     e.preventDefault();
@@ -33,7 +35,7 @@ function Auth() {
             user: userInfo.user,
           });
           setLoading({ ...loading, signIn: false });
-          navigate("/");
+          navigate(navStateDate?.state?.redirect || "/");
         })
         .catch((error) => {
           setError(error.message);
@@ -49,7 +51,7 @@ function Auth() {
             user: userInfo.user,
           });
           setLoading({ ...loading, signIn: false });
-          navigate("/");
+          navigate(navStateDate?.state?.redirect || "/");
         })
         .catch((error) => {
           setError(error.message);
@@ -68,7 +70,19 @@ function Auth() {
       </Link>
       {/* form */}
       <div className={classes.login_container}>
-        <h1></h1>
+        <h1>Sign In</h1>
+        {navStateDate?.state?.msg && (
+          <small
+            style={{
+              padding: "5px",
+              color: "red",
+              textAlign: "center",
+              fontWeight: "bold",
+            }}
+          >
+            {navStateDate.state.msg}
+          </small>
+        )}
         <form action="">
           <div>
             <label htmlFor="email">email</label>

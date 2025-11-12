@@ -120,6 +120,13 @@
   opacity: 0.65;
   cursor: not-allowed;
 }
+.payment_loader {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  gap: 10px;
+  color: rgb(52, 52, 52);
+}
 
 /* ✅ Responsive Design */
 @media (max-width: 768px) {
