@@ -21,6 +21,8 @@ function Routing() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/auth" element={<Auth />} />
+
+        {/* Payments Page */}
         <Route
           path="/payments"
           element={
@@ -28,14 +30,14 @@ function Routing() {
               msg={"You need to login to proceed to payment"}
               redirect={"/payments"}
             >
-              <Orders />
               <Elements stripe={stripePromise}>
                 <Payment />
               </Elements>
             </ProtectedRoute>
           }
         />
-        <Route path="/payments" element={<Payment />} />
+
+        {/* Orders Page */}
         <Route
           path="/orders"
           element={
@@ -47,6 +49,7 @@ function Routing() {
             </ProtectedRoute>
           }
         />
+
         <Route path="/catagory/:catagoryName" element={<Results />} />
         <Route path="/products/:productId" element={<ProductDetail />} />
         <Route path="/cart" element={<Cart />} />

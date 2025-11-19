@@ -20,11 +20,11 @@ function Auth() {
   });
   const navigate = useNavigate();
   const navStateDate = useLocation();
-  console.log(navStateDate);
+  // console.log(navStateDate);
 
   const authHandler = async (e) => {
     e.preventDefault();
-    console.log(e.target.name);
+    // console.log(e.target.name);
 
     if (e.target.name === "signin") {
       setLoading({ ...loading, signIn: true });

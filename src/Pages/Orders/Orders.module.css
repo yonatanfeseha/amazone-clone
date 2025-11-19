@@ -2,11 +2,65 @@
   background-color: #efeeee;
   padding: 30px;
 }
+
 .order_container {
   background-color: #fff;
   padding: 20px;
+  width: 50% !important;
 }
+
 .order_container h2 {
   border-bottom: 2px solid var(--primary-shade);
   padding: 20px;
+}
+
+.order_container p {
+  padding: 12px;
+}
+
+/* All products in one order appear in a row */
+.order-products {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 15px !important;
+  margin-bottom: 20px !important;
+}
+
+/* Each product card */
+.product-card-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  width: 250px !important; /* fixed card width */
+  border: 1px solid #ddd !important;
+  border-radius: 8px !important;
+  padding: 10px !important;
+  background-color: #fff !important;
+  flex-shrink: 0 !important;
+}
+
+/* Image inside product card */
+.product-card-wrapper img {
+  width: 100px !important;
+  height: 100px !important;
+  object-fit: cover !important;
+  border-radius: 5px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Info inside product card */
+.product-card-wrapper > div {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  gap: 5px !important;
+  flex: 1 !important;
+}
+
+/* Reset headings and paragraph spacing inside cards */
+.product-card-wrapper h3,
+.product-card-wrapper p {
+  margin: 0 !important;
+  padding: 0 !important;
 }
